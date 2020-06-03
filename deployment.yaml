@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: awsnodedocker
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: awsnodedocker
+  template:
+    metadata:
+      labels:
+        app: awsnodedocker
+    spec:
+      containers:
+      - name: awsnodedocker
+        image: 342954439004.dkr.ecr.us-east-1.amazonaws.com/awsnodedocker
+        ports:
+        - containerPort: 8080
